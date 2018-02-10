@@ -1,3 +1,4 @@
+"""Copyright (c) 2017, Anthony Scopatz"""
 import networkx as nx
 
 import os
