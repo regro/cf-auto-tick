@@ -1,2 +1,1 @@
-# cf-auto-tick
-ticks feedstocks
+# Worker for running `03-auto_tick.xsh`

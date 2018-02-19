@@ -1,0 +1,27 @@
+language: python
+sudo: false
+
+
+python:
+  - 3.6
+before_install:
+  - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
+  - chmod +x miniconda.sh
+  - ./miniconda.sh -b -p ~/mc
+  - export PATH=~/mc/bin:$PATH
+  - conda config --set always_yes yes --set changeps1 no --set quiet true
+  - conda update conda --yes
+  - conda config --add channels conda-forge
+
+
+install:
+  - export GIT_FULL_HASH=`git rev-parse HEAD`
+  - conda create python=$TRAVIS_PYTHON_VERSION
+  - source activate testenv
+
+script:
+  - git clone https://github.com/regro/cf-graph.git
+  - cd cf-graph
+  - conda install --file requirements/run
+  - xonsh 03-auto_tick.xsh
+  - doctr deploy . --built-docs ./cf-graph/
