@@ -1,7 +1,6 @@
 language: python
 sudo: false
 
-
 python:
   - 3.6
 before_install:
@@ -18,10 +17,12 @@ install:
   - export GIT_FULL_HASH=`git rev-parse HEAD`
   - conda create python=$TRAVIS_PYTHON_VERSION
   - source activate testenv
-
-script:
   - git clone https://github.com/regro/cf-graph.git
   - cd cf-graph
   - conda install --file requirements/run
-  - xonsh 03-auto_tick.xsh
-  - doctr deploy . --built-docs ./cf-graph/
+
+script:
+  - set -e
+  - python 03-auto_tick.py
+  - conda install doctr
+  - doctr deploy . --built-docs . --deploy-branch-name master
