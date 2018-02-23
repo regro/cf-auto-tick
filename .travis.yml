@@ -26,7 +26,6 @@ install:
   - conda install --file requirements/run
 
 script:
-  - set -e
   - xonsh 03-auto_tick.xsh
   - conda install doctr
   - doctr deploy --token --built-docs . --deploy-repo regro/cf-graph --deploy-branch-name master .
