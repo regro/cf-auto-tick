@@ -30,4 +30,4 @@ script:
   - set -e
   - python 00-find_feedstocks.py
   - conda install doctr
-  - doctr deploy --built-docs . --deploy-repo regro/cf-graph --deploy-branch-name master .
+  - doctr deploy --token --built-docs . --deploy-repo regro/cf-graph --deploy-branch-name master .
