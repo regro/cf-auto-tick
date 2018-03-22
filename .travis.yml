@@ -14,4 +14,4 @@ install:
   - git clone https://github.com/regro/cf-scripts.git
 script:
   - cd cf-scripts
-  - ./00.sh
+  - ./03.sh
