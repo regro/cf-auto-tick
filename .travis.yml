@@ -12,5 +12,7 @@ install:
   - cd cf-scripts
   - source setup.sh
   - export PATH=~/mc/bin:$PATH
+  - cd cf-scripts
 script:
+  - echo $(pwd)
   - xonsh 01.xsh
