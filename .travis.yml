@@ -6,12 +6,10 @@ env:
     # Doctr deploy key for regro/cf-graph
     - secure: "SiGX99CpSLIHQXcOR8RN3JfL9pdyps1kFISSaaICFOJ65Wp+C5ERWzqZMOr7NlmTijJmCQ4DzGi9h1t+zYWgg+l2XsUXLS+4SDI5SZMCmbP5vHiP2qxnWEiCPTaZrXMNeGcD4yW1KvwxnrRIcyX4JDz2EP4cLKS0laj3kpGTrYPVx2wFrX8/V78SPIZ9S2m1aSOmOtEvyaj1gOdazxGXjLyZ43FbrhwKILweVd8wgsKS4GKsgQIXDRxk4713f32SMOzav+xI6IzHxaoo3RQu3NQQfoeks73/hfxdNyr76fggimXKUPo5tS84W5rU6fwhhZU/ojSxJIMnGcZSRGpmk86nd3l6+jSqU6txinwO5ROL3wvu0o06cY17WAUzPfF/z5Oo5sNbWeuj9Idp9ske4wfWx17q0Z/jkOBiRXYGetjdQTwRlRrqf9R7hja6QGm0giSgXTMGNMyWsI+YIWAZcl5vYBuPCFGc8RUfuRz4zL34oN/4pa7rewkamkNlgTxx9V+lBj46+tNMlrhWhF97z+p+Bpl1zauGxCxCSEGxeWSNyIHgu4z4CKm9q4LG5G201QC71P+6i9Zbo0xcX5PnZi/V1Smky8yQJ4F791GJfSsCMfo98FIQJ7ZoLFyB2YP2dLH538QXL51IKGz8E8PMzZKDpVi+bOzj6iN7e9Qw0LM="
 
-python:
-  - 3.6
-
 install:
   - set -e
   - git clone https://github.com/regro/cf-scripts.git
-script:
   - cd cf-scripts
-  - ./03.sh
+  - ./setup.sh
+script:
+  - xonsh 01.xsh
